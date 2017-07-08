@@ -165,7 +165,7 @@ set confirm
 " no backup files
 set nobackup
 " other settings 
-set langmenu=zh_CN.UTF-8
+set langmenu=utf-8
 set mouse=a
 set whichwrap+=<,>,h,l,[,]
 set background=dark
@@ -329,7 +329,7 @@ func! CompileRunFunc()
         exec "!time python %"
     endif
 endfunc
-" Comile end -------------------------
+" Compile end -------------------------
 " CtrlP ------------------------------
 
 " file finder mapping
@@ -387,10 +387,10 @@ let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_enable_signs = 1
 " custom icons (enable them if you use a patched font, and enable the previous 
 " setting)
-let g:syntastic_error_symbol = '✗'
-let g:syntastic_warning_symbol = '⚠'
-let g:syntastic_style_error_symbol = '✗'
-let g:syntastic_style_warning_symbol = '⚠'
+let g:syntastic_error_symbol = 'E'
+let g:syntastic_warning_symbol = 'W'
+let g:syntastic_style_error_symbol = 'E'
+let g:syntastic_style_warning_symbol = 'W'
 
 " Python-mode ------------------------------
 
@@ -519,13 +519,13 @@ endif
 "let g:airline_symbols.readonly = '⭤'
 "let g:airline_symbols.linenr = '⭡'
 
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = '^'
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ''
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
 
 " new file set title and turn to endline
 autocmd BufNewFile *.sh,*.py,*.rb exec ":call SetTitle()"
