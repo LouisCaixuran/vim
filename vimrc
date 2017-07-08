@@ -115,7 +115,7 @@ Plugin 'suan/vim-instant-markdown'
 " Handlebars syntax highlighting
 Plugin 'mustache/vim-mustache-handlebars'
 " Vue.js syntax and highlighting
-Plugin 'tao12345666333/vim-vue'
+"Plugin 'tao12345666333/vim-vue'
 " True Sublime Text style multiple selections for Vim
 Plugin 'terryma/vim-multiple-cursors'
 
@@ -312,6 +312,24 @@ let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
 " show pending tasks list
 map <F2> :TaskList<CR>
 
+" Comile start--------------------------
+map <F5> :call CompileRunFunc()<CR>
+func! CompileRunFunc()
+    exec "w"
+    if &filetype=='c'
+        exec "!gcc % -o %<"
+        exec "!time ./%<"
+    elseif &filetype=='java'
+        exec "!javac % "
+        exec "!time java %<"
+    elseif &filetype=='cpp'
+        exec "!g++ % -o %<"
+        exec "!time ./%<"
+    elseif &filetype =='Python'
+        exec "!time python %"
+    endif
+endfunc
+" Comile end -------------------------
 " CtrlP ------------------------------
 
 " file finder mapping
@@ -366,7 +384,7 @@ let g:syntastic_check_on_open = 1
 " let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_javascript_checkers = ['eslint']
 " don't put icons on the sign column (it hides the vcs status icons of signify)
-let g:syntastic_enable_signs = 0
+let g:syntastic_enable_signs = 1
 " custom icons (enable them if you use a patched font, and enable the previous 
 " setting)
 let g:syntastic_error_symbol = '✗'
@@ -492,19 +510,20 @@ let g:airline#extensions#whitespace#enabled = 1
 if !exists('g:airline_symbols')
    let g:airline_symbols = {}
 endif
-" let g:airline_left_sep = '⮀'
-" let g:airline_left_alt_sep = '⮁'
-" let g:airline_right_sep = '⮂'
-" let g:airline_right_alt_sep = '⮃'
-" let g:airline_symbols.branch = '⭠'
-" let g:airline_symbols.readonly = '⭤'
-" let g:airline_symbols.linenr = '⭡'
+
+"let g:airline_left_sep = '⮀'
+"let g:airline_left_alt_sep = '⮁'
+"let g:airline_right_sep = '⮂'
+"let g:airline_right_alt_sep = '⮃'
+"let g:airline_symbols.branch = '⭠'
+"let g:airline_symbols.readonly = '⭤'
+"let g:airline_symbols.linenr = '⭡'
 
 let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
+let g:airline_symbols.branch = '^'
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 
